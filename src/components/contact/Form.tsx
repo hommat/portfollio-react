@@ -33,6 +33,7 @@ const Form = () => {
         placeholder="example@mail.com"
         type="email"
         name="email"
+        id="email"
         autoComplete="email"
         spellCheck="false"
         required

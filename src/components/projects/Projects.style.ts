@@ -13,7 +13,7 @@ export const SProjects = styled.section`
   border-radius: ${({ theme }) => theme.borderRadius};
 `;
 
-export const SGrid = styled.div`
+export const SGrid = styled.ul`
   display: grid;
   gap: ${({ theme }) => theme.boxPadding};
   grid-template-columns: repeat(1, 1fr);

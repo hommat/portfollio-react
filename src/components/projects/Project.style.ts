@@ -1,6 +1,6 @@
 import styled from "../../styles/styled-components";
 
-export const SProject = styled.div<{ image: string }>`
+export const SProject = styled.li<{ image: string }>`
   display: flex;
   flex-direction: column;
   height: 200px;
