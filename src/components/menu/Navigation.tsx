@@ -1,21 +1,27 @@
 import React from "react";
-import styled from "styled-components";
 
 import NavigationItem from "./NavigationItem";
+import { SNavigation, SList } from "./Navigation.style";
 
-const SRoot = styled.nav``;
+type Props = {
+  menuOpen: boolean;
+};
 
-const SList = styled.ul``;
-
-const Navigation = () => {
+const Navigation: React.FC<Props> = ({ menuOpen }) => {
   return (
-    <SRoot>
-      <SList>
-        <NavigationItem href="#skills">Skills</NavigationItem>
-        <NavigationItem href="#projects">Projects</NavigationItem>
-        <NavigationItem href="#contact">Contact</NavigationItem>
+    <SNavigation menuOpen={menuOpen}>
+      <SList menuOpen={menuOpen}>
+        <NavigationItem menuOpen={menuOpen} href="#skills">
+          Skills
+        </NavigationItem>
+        <NavigationItem menuOpen={menuOpen} href="#projects">
+          Projects
+        </NavigationItem>
+        <NavigationItem menuOpen={menuOpen} href="#contact">
+          Contact
+        </NavigationItem>
       </SList>
-    </SRoot>
+    </SNavigation>
   );
 };
 

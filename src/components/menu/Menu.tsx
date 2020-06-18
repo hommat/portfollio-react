@@ -1,22 +1,22 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
 
 import Navigation from "./Navigation";
-
-const SRoot = styled.div``;
-
-const SHamburger = styled.div``;
-
-const SHamburgerBar = styled.div``;
+import { SMenu, SHamburger, SHamburgerBar } from "./Menu.style";
 
 const Menu = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  function toggleMenuOpen() {
+    setMenuOpen(!menuOpen);
+  }
+
   return (
-    <SRoot>
+    <SMenu onClick={toggleMenuOpen}>
       <SHamburger>
-        <SHamburgerBar></SHamburgerBar>
+        <SHamburgerBar menuOpen={menuOpen}></SHamburgerBar>
       </SHamburger>
-      <Navigation />
-    </SRoot>
+      <Navigation menuOpen={menuOpen} />
+    </SMenu>
   );
 };
 

@@ -1,19 +1,17 @@
 import React from "react";
-import styled from "styled-components";
+
+import { SNavigationItem, SLink } from "./NavigationItem.style";
 
 type Props = {
   href: string;
+  menuOpen: boolean;
 };
 
-const SRoot = styled.li``;
-
-const SLink = styled.a``;
-
-const NavigationItem: React.FC<Props> = ({ href, children }) => {
+const NavigationItem: React.FC<Props> = ({ href, menuOpen, children }) => {
   return (
-    <SRoot>
-      <SLink href="#skills">{children}</SLink>
-    </SRoot>
+    <SNavigationItem menuOpen={menuOpen}>
+      <SLink href={href}>{children}</SLink>
+    </SNavigationItem>
   );
 };
 

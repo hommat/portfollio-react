@@ -13,8 +13,8 @@ export default createGlobalStyle`
 
   body {
     font-family: "Roboto", sans-serif;
-    color: ${(props) => props.theme.colors.textWhite};
-    background-color: ${(props) => props.theme.colors.white};
+    color: ${({ theme }) => theme.colors.textWhite};
+    background-color: ${({ theme }) => theme.colors.white};
     overflow-x: hidden;
   }
 
