@@ -1,26 +1,20 @@
 import React from "react";
-import styled from "styled-components";
 
 import SkillsetConfident from "./SkillsetConfident";
 import SkillsetFine from "./SkillsetFine";
 import SkillsetBasics from "./SkillsetBasics";
-
-const SRoot = styled.section``;
-
-const SHeading = styled.h3``;
-
-const SGrid = styled.div``;
+import { SSkills, SGrid } from "./Skills.style";
 
 const Skills = () => {
   return (
-    <SRoot id="skills">
-      <SHeading>My skills</SHeading>
+    <SSkills className="section container" id="skills">
+      <h3 className="section__heading">My skills</h3>
       <SGrid>
         <SkillsetConfident />
         <SkillsetFine />
         <SkillsetBasics />
       </SGrid>
-    </SRoot>
+    </SSkills>
   );
 };
 

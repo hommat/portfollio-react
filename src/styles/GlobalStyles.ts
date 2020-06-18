@@ -1,5 +1,8 @@
 import { createGlobalStyle } from "./styled-components";
 
+const maxContainerWidth = "1280px";
+const sectionPadding = "50px";
+
 export default createGlobalStyle`
   * {
     margin: 0;
@@ -24,5 +27,21 @@ export default createGlobalStyle`
 
   a {
     text-decoration: none;
+  }
+ 
+  .container {
+    max-width: ${maxContainerWidth};
+    padding: 0 5%;
+    margin: 0 auto;
+  }
+
+  .section {
+    text-align: center;
+    padding-bottom: ${sectionPadding};
+  }
+
+  .section__heading {
+    font-size: 3em;
+    padding: ${sectionPadding} 0;
   }
 `;

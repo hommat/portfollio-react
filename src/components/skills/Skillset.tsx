@@ -1,22 +1,17 @@
 import React from "react";
-import styled from "styled-components";
+
+import { SSkillset, SHeading, SList } from "./Skillset.style";
 
 type Props = {
   heading: string;
 };
 
-const SRoot = styled.div``;
-
-const SHeading = styled.h4``;
-
-const SList = styled.ul``;
-
 const Skillset: React.FC<Props> = ({ heading, children }) => {
   return (
-    <SRoot>
+    <SSkillset>
       <SHeading>{heading}</SHeading>
       <SList>{children}</SList>
-    </SRoot>
+    </SSkillset>
   );
 };
 

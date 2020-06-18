@@ -1,5 +1,6 @@
 import React from "react";
-import styled from "styled-components";
+
+import { SSkill } from "./Skill.style";
 
 type Props = {
   name: string;
@@ -10,16 +11,12 @@ type Props = {
   >;
 };
 
-const SRoot = styled.li``;
-
-const SName = styled.p``;
-
 const Skill: React.FC<Props> = ({ name, Svg }) => {
   return (
-    <SRoot>
+    <SSkill>
       <Svg title={name} />
-      <SName>{name}</SName>
-    </SRoot>
+      <p>{name}</p>
+    </SSkill>
   );
 };
 
