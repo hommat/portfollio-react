@@ -1,17 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 
 import { Project as ProjectProps } from "../../projects";
-
-const SRoot = styled.div<{ image: string }>`
-  background-image: ${(props) => `url(${props.image})`};
-`;
-
-const SDescription = styled.a``;
-
-const SActions = styled.div``;
-
-const SAction = styled.a``;
+import { SProject, SDescription, SActions, SAction } from "./Project.style";
 
 const Project: React.FC<ProjectProps> = ({
   image,
@@ -20,7 +10,7 @@ const Project: React.FC<ProjectProps> = ({
   description,
 }) => {
   return (
-    <SRoot image={image}>
+    <SProject image={image}>
       <SDescription href={liveHref}>
         <p>{description}</p>
       </SDescription>
@@ -28,7 +18,7 @@ const Project: React.FC<ProjectProps> = ({
         <SAction href={liveHref}>Live</SAction>
         <SAction href={codeHref}>Code</SAction>
       </SActions>
-    </SRoot>
+    </SProject>
   );
 };
 

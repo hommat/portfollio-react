@@ -9,7 +9,7 @@ const Skills = () => {
   return (
     <SSkills className="section container" id="skills">
       <h3 className="section__heading">My skills</h3>
-      <SGrid>
+      <SGrid className="container">
         <SkillsetConfident />
         <SkillsetFine />
         <SkillsetBasics />
