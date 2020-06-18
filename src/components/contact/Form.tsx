@@ -1,15 +1,6 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 
-const SRoot = styled.form``;
-
-const SInput = styled.input``;
-
-const STextarea = styled.textarea``;
-
-const SLabel = styled.label``;
-
-const SButton = styled.button``;
+import { SForm, SInput, STextarea, SLabel, SButton } from "./Form.style";
 
 const Form = () => {
   const [email, setEmail] = useState("");
@@ -34,7 +25,7 @@ const Form = () => {
   }
 
   return (
-    <SRoot onSubmit={handleSubmit}>
+    <SForm onSubmit={handleSubmit}>
       <SLabel htmlFor="email">Email</SLabel>
       <SInput
         onChange={handleEmailChange}
@@ -68,7 +59,7 @@ const Form = () => {
         required
       ></STextarea>
       <SButton type="submit">Send</SButton>
-    </SRoot>
+    </SForm>
   );
 };
 

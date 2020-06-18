@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "./styled-components";
 
 const maxContainerWidth = "1280px";
-const sectionPadding = "50px";
+export const sectionPadding = "50px";
 
 export default createGlobalStyle`
   * {

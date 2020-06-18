@@ -1,24 +1,20 @@
 import React from "react";
-import styled from "styled-components";
 
 import Form from "./Form";
-
-const SRoot = styled.section``;
-
-const SHeading = styled.h3``;
-
-const SEmail = styled.span``;
+import { SContact, SEmail } from "./Contact.style";
 
 const Contact = () => {
   return (
-    <SRoot>
-      <SHeading id="contact">Contact</SHeading>
+    <SContact className="section">
+      <h3 className="section__heading" id="contact">
+        Contact
+      </h3>
       <p>
         Email me at
         <SEmail>placeholder@placeholder.com</SEmail> or use form below
       </p>
       <Form />
-    </SRoot>
+    </SContact>
   );
 };
 

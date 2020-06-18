@@ -1,12 +1,11 @@
 import styled from "../../styles/styled-components";
 
-const boxPadding = "25px";
-const boxTranslate = "280px";
+export const boxTranslate = "280px";
 
 export const SProjects = styled.section`
   color: ${({ theme }) => theme.colors.textWhite};
   background: ${({ theme }) => theme.colors.primaryLight3};
-  padding: ${boxPadding};
+  padding: ${({ theme }) => theme.boxPadding};
   transform: translateY(${boxTranslate});
   margin-top: -${boxTranslate};
   box-shadow: ${({ theme }) => theme.shadows.default};
@@ -16,7 +15,7 @@ export const SProjects = styled.section`
 
 export const SGrid = styled.div`
   display: grid;
-  gap: ${boxPadding};
+  gap: ${({ theme }) => theme.boxPadding};
   grid-template-columns: repeat(1, 1fr);
 
   @media (min-width: 570px) {

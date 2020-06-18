@@ -10,6 +10,7 @@ const colors = {
 
 const shadows = {
   default: "2px 2px 17px -1px rgba(0, 0, 0, 0.87)",
+  text: "1px 1px 1px rgba(255, 255, 255, 0.12)",
 };
 
 const transitionTimes = {
@@ -18,11 +19,15 @@ const transitionTimes = {
 
 const borderRadius = "10px";
 
+// Projects and contact
+const boxPadding = "25px";
+
 export type Theme = {
   colors: { [key in keyof typeof colors]: string };
   shadows: { [key in keyof typeof shadows]: string };
   transitionTimes: { [key in keyof typeof transitionTimes]: string };
   borderRadius: string;
+  boxPadding: string;
 };
 
 export const theme: Theme = {
@@ -30,4 +35,5 @@ export const theme: Theme = {
   shadows,
   transitionTimes,
   borderRadius,
+  boxPadding,
 };
