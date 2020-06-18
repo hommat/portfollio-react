@@ -11,8 +11,8 @@ const Menu = () => {
   }
 
   return (
-    <SMenu onClick={toggleMenuOpen}>
-      <SHamburger>
+    <SMenu>
+      <SHamburger onClick={toggleMenuOpen}>
         <SHamburgerBar menuOpen={menuOpen}></SHamburgerBar>
       </SHamburger>
       <Navigation menuOpen={menuOpen} />

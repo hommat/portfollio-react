@@ -1,16 +1,13 @@
 import React from "react";
-import styled from "styled-components";
 
-const SRoot = styled.footer``;
-
-const SAuthor = styled.a``;
+import { SFooter, SAuthor } from "./Footer.style";
 
 const Footer = () => {
   return (
-    <SRoot>
-      Created by
+    <SFooter>
+      Created by{" "}
       <SAuthor href="https://github.com/hommat">Mateusz Ziomek</SAuthor>
-    </SRoot>
+    </SFooter>
   );
 };
 
