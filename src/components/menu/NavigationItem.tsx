@@ -4,12 +4,11 @@ import { SNavigationItem, SLink } from "./NavigationItem.style";
 
 type Props = {
   href: string;
-  menuOpen: boolean;
 };
 
-const NavigationItem: React.FC<Props> = ({ href, menuOpen, children }) => {
+const NavigationItem: React.FC<Props> = ({ href, children }) => {
   return (
-    <SNavigationItem menuOpen={menuOpen}>
+    <SNavigationItem>
       <SLink href={href}>{children}</SLink>
     </SNavigationItem>
   );

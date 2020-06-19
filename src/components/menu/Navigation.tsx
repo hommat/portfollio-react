@@ -11,15 +11,9 @@ const Navigation: React.FC<Props> = ({ menuOpen }) => {
   return (
     <SNavigation menuOpen={menuOpen}>
       <SList menuOpen={menuOpen}>
-        <NavigationItem menuOpen={menuOpen} href="#skills">
-          Skills
-        </NavigationItem>
-        <NavigationItem menuOpen={menuOpen} href="#projects">
-          Projects
-        </NavigationItem>
-        <NavigationItem menuOpen={menuOpen} href="#contact">
-          Contact
-        </NavigationItem>
+        <NavigationItem href="#skills">Skills</NavigationItem>
+        <NavigationItem href="#projects">Projects</NavigationItem>
+        <NavigationItem href="#contact">Contact</NavigationItem>
       </SList>
     </SNavigation>
   );
