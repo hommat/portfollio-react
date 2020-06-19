@@ -40,7 +40,7 @@ export const projects: Projects = {
     image: xpImage,
     liveHref: "https://winxp.netlify.com/",
     codeHref: "https://github.com/hommat/xp",
-    description: "ASimple windows xp recreation.",
+    description: "Simple windows xp recreation.",
   },
   chess: {
     image: chessImage,

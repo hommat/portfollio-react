@@ -11,7 +11,7 @@ const Menu = () => {
   }
 
   return (
-    <SMenu data-aos="fade" data-aos-delay={750}>
+    <SMenu>
       <SHamburger onClick={toggleMenuOpen}>
         <SHamburgerBar menuOpen={menuOpen}></SHamburgerBar>
       </SHamburger>

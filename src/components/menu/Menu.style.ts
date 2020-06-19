@@ -1,8 +1,18 @@
-import styled from "../../styles/styled-components";
+import styled, { keyframes } from "../../styles/styled-components";
 
 const menuCornerDistance = "30px";
 const menuSize = "55px";
 const menuHamburgetBarDistance = "9px";
+
+const menuEntryAnimation = keyframes`
+  0%, 33%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+`;
 
 export const SMenu = styled.div`
   z-index: 1;
@@ -14,7 +24,9 @@ export const SMenu = styled.div`
   background: ${(props) => props.theme.colors.primary};
   border-radius: 50%;
   box-shadow: ${(props) => props.theme.shadows.default};
-  transform: none !important;
+  animation-name: ${menuEntryAnimation};
+  animation-duration: 2000ms;
+  animation-timing-function: ease;
 `;
 
 export const SHamburger = styled.div`
