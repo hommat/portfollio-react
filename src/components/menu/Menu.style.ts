@@ -14,6 +14,7 @@ export const SMenu = styled.div`
   background: ${(props) => props.theme.colors.primary};
   border-radius: 50%;
   box-shadow: ${(props) => props.theme.shadows.default};
+  transform: none !important;
 `;
 
 export const SHamburger = styled.div`

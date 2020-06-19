@@ -17,6 +17,10 @@ const transitionTimes = {
   default: "0.3s",
 };
 
+const easings = {
+  bounce: "cubic-bezier(0.64, 0.57, 0.67, 1.53)",
+};
+
 const borderRadius = "10px";
 
 // Projects and contact
@@ -26,6 +30,7 @@ export type Theme = {
   colors: { [key in keyof typeof colors]: string };
   shadows: { [key in keyof typeof shadows]: string };
   transitionTimes: { [key in keyof typeof transitionTimes]: string };
+  easings: { [key in keyof typeof easings]: string };
   borderRadius: string;
   boxPadding: string;
 };
@@ -36,4 +41,5 @@ export const theme: Theme = {
   transitionTimes,
   borderRadius,
   boxPadding,
+  easings,
 };
