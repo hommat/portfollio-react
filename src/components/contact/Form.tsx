@@ -1,66 +1,111 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 
+import Alert from "./Alert";
 import { SForm, SInput, STextarea, SLabel, SButton } from "./Form.style";
+import { post } from "../../utils";
+
+type State = {
+  email: string;
+  subject: string;
+  message: string;
+  loading: boolean;
+  showMessage: boolean;
+  isMessageError: boolean;
+};
+
+const formspreeURL = "https://formspree.io/mqkpoave";
 
 const Form = () => {
-  const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
+  const [state, setState] = useState<State>({
+    email: "",
+    subject: "",
+    message: "",
+    loading: false,
+    showMessage: false,
+    isMessageError: false,
+  });
 
-  function handleEmailChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setEmail(e.target.value);
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    const { name, value } = e.target;
+
+    setState({ ...state, [name as any]: value });
   }
 
-  function handleSubjectChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setSubject(e.target.value);
-  }
-
-  function handleMessageChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
-    setMessage(e.target.value);
-  }
-
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    const { loading, ...data } = state;
     e.preventDefault();
-    alert("not connected");
+    if (loading) return;
+
+    setState({ ...state, loading: true });
+    let errorOccured = false;
+
+    try {
+      await post(formspreeURL, data);
+    } catch (e) {
+      errorOccured = true;
+    }
+
+    setState({
+      ...state,
+      loading: false,
+      showMessage: true,
+      isMessageError: errorOccured,
+      message: errorOccured ? state.message : "",
+    });
+  }
+
+  function hideMessage() {
+    setState({ ...state, showMessage: false });
   }
 
   return (
-    <SForm onSubmit={handleSubmit}>
-      <SLabel htmlFor="email">Email</SLabel>
-      <SInput
-        onChange={handleEmailChange}
-        value={email}
-        placeholder="example@mail.com"
-        type="email"
-        name="email"
-        id="email"
-        autoComplete="email"
-        spellCheck="false"
-        required
+    <Fragment>
+      <SForm onSubmit={handleSubmit}>
+        <SLabel htmlFor="email">Email</SLabel>
+        <SInput
+          onChange={handleChange}
+          value={state.email}
+          placeholder="example@mail.com"
+          type="email"
+          name="email"
+          id="email"
+          autoComplete="email"
+          spellCheck="false"
+          required
+        />
+        <SLabel htmlFor="subject">Subject</SLabel>
+        <SInput
+          onChange={handleChange}
+          value={state.subject}
+          placeholder="Job offer"
+          type="text"
+          id="subject"
+          name="subject"
+          autoComplete="off"
+          required
+        />
+        <SLabel htmlFor="message">Message</SLabel>
+        <STextarea
+          onChange={handleChange}
+          value={state.message}
+          placeholder="Hey, check out our offer!"
+          name="message"
+          id="message"
+          autoComplete="off"
+          required
+        ></STextarea>
+        <SButton type="submit" disabled={state.loading}>
+          Send
+        </SButton>
+      </SForm>
+      <Alert
+        show={state.showMessage}
+        success={!state.isMessageError}
+        onClose={hideMessage}
       />
-      <SLabel htmlFor="subject">Subject</SLabel>
-      <SInput
-        onChange={handleSubjectChange}
-        value={subject}
-        placeholder="Job offer"
-        type="text"
-        id="subject"
-        name="subject"
-        autoComplete="off"
-        required
-      />
-      <SLabel htmlFor="message">Message</SLabel>
-      <STextarea
-        onChange={handleMessageChange}
-        value={message}
-        placeholder="Hey, check out our offer!"
-        name="message"
-        id="message"
-        autoComplete="off"
-        required
-      ></STextarea>
-      <SButton type="submit">Send</SButton>
-    </SForm>
+    </Fragment>
   );
 };
 

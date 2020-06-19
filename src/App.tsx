@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
-import AOS from "aos";
+import React from "react";
 import { ThemeProvider } from "styled-components";
-import "aos/dist/aos.css";
 
 import Menu from "./components/menu/Menu";
 import Header from "./components/header/Header";
@@ -13,10 +11,6 @@ import GlobalStyles from "./styles/GlobalStyles";
 import { theme } from "./styles/theme";
 
 const App = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1200 });
-  }, []);
-
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />

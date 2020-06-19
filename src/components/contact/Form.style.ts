@@ -1,6 +1,7 @@
-import styled, { css } from "../../styles/styled-components";
+import styled, { css, keyframes } from "../../styles/styled-components";
 
 const hoverTranslation = "-2px";
+const buttonLoaderSize = "20px";
 
 export const SForm = styled.form`
   padding: ${({ theme }) => theme.boxPadding};
@@ -44,6 +45,16 @@ export const SLabel = styled.label`
   margin-left: 2px;
 `;
 
+const buttonLoadingAnimation = keyframes`
+  0%{
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100%{
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+`;
+
 export const SButton = styled.button`
   font-size: 1em;
   color: ${({ theme }) => theme.colors.white};
@@ -55,9 +66,36 @@ export const SButton = styled.button`
   margin: 0 auto;
   background: ${({ theme }) => theme.colors.primary};
   transition: ${({ theme }) => theme.transitionTimes.default};
+  position: relative;
 
   &:hover,
   &:focus {
     transform: translateY(${hoverTranslation});
+  }
+
+  &:disabled {
+    color: transparent;
+    &::after {
+      content: "";
+      background-color: transparent;
+      border: 3px solid rgba(255, 255, 255, 0.4);
+      border-top: 3px solid ${({ theme }) => theme.colors.white};
+      border-bottom: 3px solid ${({ theme }) => theme.colors.white};
+      border-radius: 50%;
+      display: block;
+      left: 50%;
+      top: 50%;
+      position: absolute;
+      width: ${buttonLoaderSize};
+      height: ${buttonLoaderSize};
+      animation-name: ${buttonLoadingAnimation};
+      animation-duration: 1000ms;
+      animation-iteration-count: infinite;
+    }
+
+    &:hover,
+    &:focus {
+      transform: none;
+    }
   }
 `;
