@@ -10,6 +10,10 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  #root {
+    background-color: ${({ theme }) => theme.colors.white} !important;
+  }
+
   html {
     scroll-behavior: smooth;
   }
