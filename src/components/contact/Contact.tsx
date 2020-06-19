@@ -3,6 +3,8 @@ import React from "react";
 import Form from "./Form";
 import { SContact, SEmail } from "./Contact.style";
 
+const email = "mateuszziomek2000@gmail.com";
+
 const Contact = () => {
   return (
     <SContact className="section">
@@ -11,8 +13,8 @@ const Contact = () => {
       </h3>
 
       <p>
-        Email me at <SEmail>placeholder@placeholder.com</SEmail> or use form
-        below
+        Email me at <SEmail href={`mailto:${email}`}>{email}</SEmail> or use
+        form below
       </p>
       <Form />
     </SContact>

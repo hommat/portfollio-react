@@ -13,7 +13,7 @@ type State = {
   isMessageError: boolean;
 };
 
-const formspreeURL = "https://formspree.io/mqkpoave";
+const formspreeURL = "https://formspree.io/xaypbjon";
 
 const Form = () => {
   const [state, setState] = useState<State>({
@@ -34,15 +34,16 @@ const Form = () => {
   }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    const { loading, ...data } = state;
+    const { loading, email, subject, message } = state;
     e.preventDefault();
     if (loading) return;
 
     setState({ ...state, loading: true });
+    const body = { email, subject, message };
     let errorOccured = false;
 
     try {
-      await post(formspreeURL, data);
+      await post(formspreeURL, body);
     } catch (e) {
       errorOccured = true;
     }

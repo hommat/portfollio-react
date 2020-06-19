@@ -11,4 +11,5 @@ export const SFooter = styled.footer`
 export const SAuthor = styled.a`
   color: white;
   text-shadow: ${({ theme }) => theme.shadows.text};
+  font-weight: 500;
 `;

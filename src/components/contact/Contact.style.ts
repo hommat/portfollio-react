@@ -10,7 +10,8 @@ export const SContact = styled.section`
   box-shadow: ${({ theme }) => theme.shadows.default};
 `;
 
-export const SEmail = styled.span`
+export const SEmail = styled.a`
   color: white;
   text-shadow: ${({ theme }) => theme.shadows.text};
+  font-weight: 500;
 `;
