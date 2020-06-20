@@ -5,6 +5,7 @@ export const SSkillset = styled.div`
 `;
 
 export const SHeading = styled.h4`
+  font-weight: 500;
   font-size: 1.5rem;
   margin-bottom: 20px;
 `;
